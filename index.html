@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Taste House | Good Food. Great Moments.</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#0d0c0a;
+    color:#f7f1e7;
+    line-height:1.6;
+}
+
+:root{
+    --gold:#d4a84f;
+    --cream:#f7f1e7;
+    --dark:#0d0c0a;
+    --card:#171512;
+    --muted:#aaa29a;
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(13,12,10,.96);
+    border-bottom:1px solid #29251f;
+}
+
+.nav-container{
+    max-width:1150px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-family:Georgia,serif;
+    font-size:27px;
+    font-weight:bold;
+    color:var(--gold);
+}
+
+.logo span{
+    color:white;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#eee;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.nav-btn{
+    background:var(--gold);
+    color:#111 !important;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:88vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-container{
+    max-width:1150px;
+    width:100%;
+    margin:auto;
+    padding:80px 25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    color:var(--gold);
+    border:1px solid #554526;
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:65px;
+    line-height:1.05;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero p{
+    color:var(--muted);
+    max-width:520px;
+    font-size:17px;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 23px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:#111;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    border:1px solid #625944;
+    color:white;
+}
+
+.btn-outline:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+/* HERO FOOD VISUAL */
+
+.food-visual{
+    height:500px;
+    border-radius:30px;
+    background:
+    radial-gradient(circle at 50% 45%,#5d4824 0%,#282015 30%,#15120f 65%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    border:1px solid #342d22;
+}
+
+.plate{
+    width:330px;
+    height:330px;
+    border-radius:50%;
+    background:#f1e6d2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 20px 70px rgba(0,0,0,.7);
+    font-size:130px;
+}
+
+.rating{
+    position:absolute;
+    top:35px;
+    right:30px;
+    background:#191611;
+    padding:13px 18px;
+    border-radius:15px;
+    border:1px solid #3a3225;
+}
+
+.rating strong{
+    color:var(--gold);
+}
+
+.order-card{
+    position:absolute;
+    bottom:30px;
+    left:30px;
+    background:#191611;
+    padding:18px 22px;
+    border-radius:16px;
+    border:1px solid #3a3225;
+}
+
+.order-card small{
+    color:#aaa;
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 25px;
+}
+
+.section-container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title span{
+    color:var(--gold);
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-family:Georgia,serif;
+    font-size:45px;
+    margin-top:8px;
+}
+
+.section-title p{
+    color:var(--muted);
+    max-width:600px;
+    margin:12px auto;
+}
+
+/* MENU */
+
+.menu{
+    background:#11100e;
+}
+
+.menu-filters{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:35px;
+    flex-wrap:wrap;
+}
+
+.filter{
+    background:transparent;
+    color:#bbb;
+    border:1px solid #3a342b;
+    padding:9px 18px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.filter.active,
+.filter:hover{
+    background:var(--gold);
+    color:#111;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.food-card{
+    background:var(--card);
+    border:1px solid #2b2721;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.food-card:hover{
+    transform:translateY(-7px);
+    border-color:#64512c;
+}
+
+.food-image{
+    height:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:75px;
+    background:linear-gradient(135deg,#3b2c18,#191611);
+}
+
+.food-info{
+    padding:22px;
+}
+
+.food-info h3{
+    font-family:Georgia,serif;
+    font-size:22px;
+    margin-bottom:7px;
+}
+
+.food-info p{
+    color:#999;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.food-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.price{
+    color:var(--gold);
+    font-weight:bold;
+    font-size:18px;
+}
+
+.order-small{
+    background:#292218;
+    color:var(--gold);
+    border:1px solid #594725;
+    padding:8px 13px;
+    border-radius:20px;
+    text-decoration:none;
+    font-size:13px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-image{
+    min-height:430px;
+    border-radius:25px;
+    background:
+    linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.5)),
+    radial-gradient(circle,#806033,#211b13 60%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:120px;
+}
+
+.about-text span{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:13px;
+}
+
+.about-text h2{
+    font-family:Georgia,serif;
+    font-size:43px;
+    line-height:1.15;
+    margin:12px 0 20px;
+}
+
+.about-text p{
+    color:var(--muted);
+    margin-bottom:18px;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.feature{
+    text-align:center;
+    padding:35px 25px;
+    background:#151310;
+    border:1px solid #2a261f;
+    border-radius:18px;
+}
+
+.feature-icon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#999;
+    font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+    background:
+    linear-gradient(rgba(13,12,10,.8),rgba(13,12,10,.95)),
+    radial-gradient(circle at center,#60491e,#0d0c0a 65%);
+    text-align:center;
+}
+
+.cta h2{
+    font-family:Georgia,serif;
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#bbb;
+    margin-bottom:25px;
+}
+
+/* CONTACT */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.contact-card{
+    padding:30px;
+    background:#151310;
+    border:1px solid #2a261f;
+    border-radius:18px;
+}
+
+.contact-card h3{
+    font-family:Georgia,serif;
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.contact-card p{
+    color:#aaa;
+    margin-bottom:10px;
+}
+
+.contact-link{
+    color:var(--gold);
+    text-decoration:none;
+}
+
+/* FOOTER */
+
+footer{
+    background:#080807;
+    padding:35px 25px;
+    text-align:center;
+    border-top:1px solid #24211c;
+}
+
+footer .logo{
+    margin-bottom:8px;
+}
+
+footer p{
+    color:#777;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#0d0c0a;
+        flex-direction:column;
+        align-items:center;
+        padding:25px;
+        display:none;
+        border-bottom:1px solid #29251f;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .hero-container{
+        grid-template-columns:1fr;
+        padding-top:60px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .food-visual{
+        height:400px;
+    }
+
+    .plate{
+        width:250px;
+        height:250px;
+        font-size:95px;
+    }
+
+    .menu-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:550px){
+
+    section{
+        padding:70px 18px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .section-title h2{
+        font-size:35px;
+    }
+
+    .menu-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-text h2{
+        font-size:35px;
+    }
+
+    .cta h2{
+        font-size:35px;
+    }
+
+    .food-visual{
+        height:330px;
+    }
+
+    .plate{
+        width:210px;
+        height:210px;
+        font-size:75px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+<div class="nav-container">
+
+<div class="logo">
+Taste<span>House</span>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+<li>
+<a class="nav-btn" href="https://wa.me/2348164048575?text=Hello%20Taste%20House,%20I%20want%20to%20place%20an%20order.">
+Order Now
+</a>
+</li>
+</ul>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-container">
+
+<div>
+
+<span class="badge">🍽️ AUTHENTIC NIGERIAN FLAVOURS</span>
+
+<h1>
+Good food.<br>
+<span>Great moments.</span>
+</h1>
+
+<p>
+Freshly prepared meals, bold flavours and unforgettable moments.
+Welcome to Taste House — where every plate tells a story.
+</p>
+
+<div class="buttons">
+
+<a class="btn btn-primary"
+href="https://wa.me/2348164048575?text=Hello%20Taste%20House,%20I%20want%20to%20place%20an%20order.">
+Order on WhatsApp
+</a>
+
+<a class="btn btn-outline" href="#menu">
+View Our Menu
+</a>
+
+</div>
+
+</div>
+
+
+<div class="food-visual">
+
+<div class="rating">
+⭐ <strong>4.9/5</strong><br>
+<small>Customer Rating</small>
+</div>
+
+<div class="plate">
+🍛
+</div>
+
+<div class="order-card">
+<strong>Fresh • Tasty • Local</strong><br>
+<small>Made with love every day ❤️</small>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MENU -->
+
+<section class="menu" id="menu">
+
+<div class="section-container">
+
+<div class="section-title">
+
+<span>Our Menu</span>
+
+<h2>Something for everyone</h2>
+
+<p>
+From classic Nigerian favourites to quick bites and refreshing drinks.
+</p>
+
+</div>
+
+
+<div class="menu-filters">
+
+<button class="filter active" onclick="filterMenu('all',this)">
+All
+</button>
+
+<button class="filter" onclick="filterMenu('main',this)">
+Main Meals
+</button>
+
+<button class="filter" onclick="filterMenu('snacks',this)">
+Snacks
+</button>
+
+<button class="filter" onclick="filterMenu('drinks',this)">
+Drinks
+</button>
+
+</div>
+
+
+<div class="menu-grid">
+
+
+<!-- ITEM 1 -->
+
+<div class="food-card" data-category="main">
+
+<div class="food-image">🍛</div>
+
+<div class="food-info">
+
+<h3>Jollof Rice</h3>
+
+<p>Smoky Nigerian jollof rice served with your choice of protein.</p>
+
+<div class="food-bottom">
+
+<span class="price">₦3,500</span>
+
+<a class="order-small"
+href="https://wa.me/2348164048575?text=Hello%20Taste%20House,%20I%20want%20to%20order%20Jollof%20Rice.">
+Order
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- ITEM 2 -->
+
+<div class="food-card" data-category="main">
+
+<div class="food-image">🍗</div>
+
+<div class="food-info">
+
+<h3>Chicken & Chips</h3>
+
+<p>Crispy golden chicken served with seasoned fries.</p>
+
+<div class="food-bottom">
+
+<span class="price">₦5,000</span>
+
+<a class="order-small"
+href="https://wa.me/2348164048575?text=Hello%20Taste%20House,%20I%20want%20to%20order%20Chicken%20and%20Chips.">
+Order
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- ITEM 3 -->
+
+<div class="food-card" data-category="main">
+
+<div class="food-image">🐟</div>
+
+<div class="food-info">
+
+<h3>Grilled Fish</h3>
+
+<p>Freshly grilled fish served with vegetables and fries.</p>
+
+<div class="food-bottom">
+
+<span class="price">₦8,500</span>
+
+<a class="order-small"
+href="https://wa.me/2348164048575?text=Hello%20Taste%20House,%20I%20want%20to%20order%20Grilled%20Fish.">
+Order
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- ITEM 4 -->
+
+<div class="food-card" data-category="snacks">
+
+<div class="food-image">🍔</div>
+
+<div class="food-info">
+
+<h3>Classic Burger</h3>
+
+<p>Juicy beef burger with fresh vegetables and special sauce.</p>
+
+<div class="food-bottom">
+
+<span class="price">₦5,000</span>
+
+<a class="order-small"
+href="https://wa.me/2348164048575?text=Hello%20Taste%20House,%20I%20want%20to%20order%20a%20Classic%20Burger.">
+Order
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- ITEM 5 -->
+
+<div class="food-card" data-category="snacks">
+
+<div class="food-image">🍕</div>
+
+<div class="food-info">
+
+<h3>Chicken Pizza</h3>
+
+<p>Cheesy pizza topped with seasoned chicken and vegetables.</p>
+
+<div class="food-bottom">
+
+<span class="price">₦7,000</span>
+
+<a class="order-small"
+href="https://wa.me/2348164048575?text=Hello%20Taste%20House,%20I%20want%20to%20order%20Chicken%20Pizza.">
+Order
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- ITEM 6 -->
+
+<div class="food-card" data-category="drinks">
+
+<div class="food-image">🥤</div>
+
+<div class="food-info">
+
+<h3>Chapman</h3>
+
+<p>Cold, refreshing and perfectly mixed Nigerian Chapman.</p>
+
+<div class="food-bottom">
+
+<span class="price">₦2,500</span>
+
+<a class="order-small"
+href="https://wa.me/2348164048575?text=Hello%20Taste%20House,%20I%20want%20to%20order%20Chapman.">
+Order
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="section-container">
+
+<div class="about-grid">
+
+<div class="about-image">
+🍽️
+</div>
+
+<div class="about-text">
+
+<span>Our Story</span>
+
+<h2>Food made with passion.</h2>
+
+<p>
+At Taste House, we believe great food brings people together.
+Our meals are prepared with carefully selected ingredients,
+traditional flavours and a modern touch.
+</p>
+
+<p>
+Whether you're grabbing lunch, having dinner with friends,
+or ordering from home, we're here to make every meal memorable.
+</p>
+
+<a href="#contact" class="btn btn-primary">
+Visit Taste House
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section>
+
+<div class="section-container">
+
+<div class="section-title">
+
+<span>Why Taste House?</span>
+
+<h2>More than just a meal.</h2>
+
+</div>
+
+
+<div class="features">
+
+<div class="feature">
+
+<div class="feature-icon">🥘</div>
+
+<h3>Fresh Ingredients</h3>
+
+<p>
+We use quality ingredients to prepare delicious meals every day.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">⚡</div>
+
+<h3>Fast Service</h3>
+
+<p>
+Quick preparation and convenient ordering for busy customers.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">❤️</div>
+
+<h3>Made With Love</h3>
+
+<p>
+Every plate is prepared with attention to flavour and quality.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="section-container">
+
+<h2>Hungry already?</h2>
+
+<p>
+Your next great meal is only one message away.
+</p>
+
+<a class="btn btn-primary"
+href="https://wa.me/2348164048575?text=Hello%20Taste%20House,%20I%20want%20to%20place%20an%20order.">
+Order on WhatsApp
+</a>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="section-container">
+
+<div class="section-title">
+
+<span>Get In Touch</span>
+
+<h2>Come hungry. Leave happy.</h2>
+
+</div>
+
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<h3>📍 Visit Us</h3>
+
+<p>
+Taste House<br>
+Port Harcourt, Rivers State<br>
+Nigeria
+</p>
+
+<p>
+<strong>Opening Hours:</strong><br>
+Monday – Sunday<br>
+10:00 AM – 10:00 PM
+</p>
+
+</div>
+
+
+<div class="contact-card">
+
+<h3>📞 Contact Us</h3>
+
+<p>
+WhatsApp:
+<a class="contact-link"
+href="https://wa.me/2348164048575">
++234 816 404 8575
+</a>
+</p>
+
+<p>
+Email:
+<a class="contact-link"
+href="mailto:ezenwatahebubechukwu@gmail.com">
+ezenwatahebubechukwu@gmail.com
+</a>
+</p>
+
+<br>
+
+<a class="btn btn-primary"
+href="https://wa.me/2348164048575?text=Hello%20Taste%20House,%20I%20have%20a%20question.">
+Chat With Us
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="logo">
+Taste<span>House</span>
+</div>
+
+<p>
+© 2026 Taste House. Demo website designed by JohnCodes.
+</p>
+
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+    document.getElementById("navLinks")
+    .classList.toggle("show");
+
+}
+
+
+/* MENU FILTER */
+
+function filterMenu(category,button){
+
+    const cards =
+    document.querySelectorAll(".food-card");
+
+    const buttons =
+    document.querySelectorAll(".filter");
+
+    buttons.forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    cards.forEach(card=>{
+
+        if(category === "all"){
+            card.style.display = "block";
+        }
+
+        else if(card.dataset.category === category){
+            card.style.display = "block";
+        }
+
+        else{
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+
+/* CLOSE MOBILE MENU AFTER CLICK */
+
+document.querySelectorAll(".nav-links a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        document
+        .getElementById("navLinks")
+        .classList.remove("show");
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
